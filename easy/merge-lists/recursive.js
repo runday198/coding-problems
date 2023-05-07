@@ -1,25 +1,13 @@
 function mergeTwoLists(list1, list2) {
-  var mergedHead = { val: null, next: null };
-  var current = mergeHead;
-  recursive(list1, list2, current);
-  return mergedHead.next;
-}
-
-function recursive(list1, list2, current) {
   if (!list1) {
-    current.next = list2;
-    return;
+    return list2;
   } else if (!list2) {
-    current.next = list2;
-    return;
-  }
-  if (list1.val > list2.val) {
-    current.next = list2;
-    list2 = list2.next;
-    recursive(list1, list2, current);
+    return list1;
+  } else if (list2.val >= list1.val) {
+    list1.next = mergeTwoLists(list1.next, list2);
+    return list1;
   } else {
-    current.next = list1;
-    list1 = list1.next;
-    recursive(list1, list2, current);
+    list2.next = mergeTwoLists(list1, list2.next);
+    return list1;
   }
 }
