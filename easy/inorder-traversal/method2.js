@@ -1,14 +1,10 @@
 function inorderTraversal(root) {
   var curNode = root;
   var prevNodes = [];
-  var returnArr;
-  var count = 0;
+  var returnArr = [];
 
   while (true) {
-    if (curNode.val === root.val) {
-      count++;
-    }
-    if (count === 3) {
+    if (!curNode) {
       return returnArr;
     }
 
@@ -22,7 +18,10 @@ function inorderTraversal(root) {
       continue;
     }
 
-    returnArr.push(curNode.val);
+    if (curNode.val !== undefined) {
+      returnArr.push(curNode.val);
+    }
+    curNode.val = undefined;
 
     if (curNode.right) {
       prevNodes.push(curNode);
@@ -31,6 +30,7 @@ function inorderTraversal(root) {
       temp.right = null;
       continue;
     }
+
     curNode = prevNodes.pop();
   }
 }
