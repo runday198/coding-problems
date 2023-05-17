@@ -1,0 +1,1 @@
+function isAnagram(s, t) {}
