@@ -37,4 +37,3 @@ var threeSum = function (nums) {
   }
   return returnArr;
 };
-Console;
