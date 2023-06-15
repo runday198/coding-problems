@@ -5,7 +5,7 @@ var isValidBST = function (root) {
   return left && right;
 };
 
-function bfs(node, min, max) {
+function isValidBST(node, min, max) {
   if (!node) {
     return true;
   }
