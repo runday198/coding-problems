@@ -1,11 +1,11 @@
 var isValidBST = function (root) {
-  var left = bfs(root.left, -Number.MAX_VALUE, root.val);
-  var right = bfs(root.right, root.val, Number.MAX_VALUE);
+  var left = isValidBSTHelper(root.left, -Number.MAX_VALUE, root.val);
+  var right = isValidBSTHelper(root.right, root.val, Number.MAX_VALUE);
 
   return left && right;
 };
 
-function isValidBST(node, min, max) {
+function isValidBSTHelper(node, min, max) {
   if (!node) {
     return true;
   }
@@ -17,8 +17,8 @@ function isValidBST(node, min, max) {
     return false;
   }
 
-  var left = bfs(node.left, min, node.val);
-  var right = bfs(node.right, node.val, max);
+  var left = isValidBSTHelper(node.left, min, node.val);
+  var right = isValidBSTHelper(node.right, node.val, max);
 
   if (!left || !right) {
     console.log("2");
