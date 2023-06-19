@@ -10,10 +10,7 @@ function isValidBSTHelper(node, min, max) {
     return true;
   }
 
-  console.log(node.val, min, max);
-
   if (node.val >= max || node.val <= min) {
-    console.log("1");
     return false;
   }
 
@@ -21,7 +18,6 @@ function isValidBSTHelper(node, min, max) {
   var right = isValidBSTHelper(node.right, node.val, max);
 
   if (!left || !right) {
-    console.log("2");
     return false;
   }
 
